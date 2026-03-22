@@ -48,6 +48,12 @@ export const ENHANCE_OPTIONS: {
     icon: 'Ruler',
   },
   {
+    id: 'perspective',
+    name: '정면 보정',
+    description: '비스듬히 찍은 사진을 정면에서 본 것처럼 보정합니다',
+    icon: 'Maximize2',
+  },
+  {
     id: 'declutter',
     name: '잡동사니 제거',
     description: '옷, 신발, 생활용품 등 어지러운 물건을 깔끔히 정리합니다',

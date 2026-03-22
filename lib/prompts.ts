@@ -67,6 +67,11 @@ export function buildEnhancePrompt(options: EnhanceOption[], additionalNotes?: s
       'Correct the vertical and horizontal perspective to make all walls, edges, and lines perfectly straight and level'
     );
   }
+  if (options.includes('perspective')) {
+    instructions.push(
+      'Transform the perspective of this room photo as if it was taken from directly in front, facing the room straight on. Correct all converging vertical lines to be parallel. Fix keystone distortion so walls appear perfectly vertical. Adjust the viewpoint to simulate a front-facing, eye-level camera position. The result should look like a professional architectural photograph taken with a tilt-shift lens from the ideal centered position'
+    );
+  }
   if (options.includes('declutter')) {
     instructions.push(
       'Remove all clutter including scattered clothes, shoes, bags, toys, and miscellaneous items. Make the space look clean and organized'

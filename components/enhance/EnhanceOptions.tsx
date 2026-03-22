@@ -5,6 +5,7 @@ import { ENHANCE_OPTIONS } from '@/lib/constants';
 import type { EnhanceOption } from '@/types';
 import {
   Ruler,
+  Maximize2,
   Trash2,
   EyeOff,
   ImageOff,
@@ -15,6 +16,7 @@ import { Check } from 'lucide-react';
 
 const ICONS: Record<string, React.ComponentType<{ className?: string }>> = {
   Ruler,
+  Maximize2,
   Trash2,
   EyeOff,
   ImageOff,

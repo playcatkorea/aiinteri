@@ -18,6 +18,7 @@ export default function EnhancePage() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [selectedOptions, setSelectedOptions] = useState<EnhanceOption[]>([
     'straighten',
+    'perspective',
     'declutter',
     'remove-reflection',
     'remove-wall-items',
@@ -80,7 +81,7 @@ export default function EnhancePage() {
   const handleReset = () => {
     setStep('upload');
     setImageUrl(null);
-    setSelectedOptions(['straighten', 'declutter', 'remove-reflection', 'remove-wall-items']);
+    setSelectedOptions(['straighten', 'perspective', 'declutter', 'remove-reflection', 'remove-wall-items']);
     setAdditionalNotes('');
     setResultUrl(null);
     setError(null);

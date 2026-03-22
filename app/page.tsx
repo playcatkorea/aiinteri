@@ -123,7 +123,7 @@ export default function HomePage() {
                   기울어진 수평 교정, 잡동사니 제거, 유리 반사 제거, 벽 부착물 정리까지 한번에.
                 </p>
                 <div className="flex flex-wrap gap-2 mb-6">
-                  {['수평 보정', '잡동사니 제거', '반사 제거', '벽 정리', '조명 보정'].map((s) => (
+                  {['수평 보정', '정면 보정', '잡동사니 제거', '반사 제거', '벽 정리', '조명 보정'].map((s) => (
                     <span key={s} className="px-3 py-1 rounded-full bg-white/5 text-white/40 text-xs">
                       {s}
                     </span>

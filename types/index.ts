@@ -27,6 +27,7 @@ export type RoomType =
 // 보정 옵션
 export type EnhanceOption =
   | 'straighten'
+  | 'perspective'
   | 'declutter'
   | 'remove-reflection'
   | 'remove-wall-items'

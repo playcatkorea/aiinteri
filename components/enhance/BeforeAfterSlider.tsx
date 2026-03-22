@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 import { cn } from '@/lib/cn';
 import Image from 'next/image';
 
@@ -31,18 +31,6 @@ export default function BeforeAfterSlider({
     isDragging.current = true;
   };
 
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => {
-      if (!isDragging.current) return;
-      handleMove(e.clientX);
-    },
-    [handleMove]
-  );
-
-  const handleMouseUp = () => {
-    isDragging.current = false;
-  };
-
   const handleTouchMove = useCallback(
     (e: React.TouchEvent) => {
       handleMove(e.touches[0].clientX);
@@ -50,14 +38,28 @@ export default function BeforeAfterSlider({
     [handleMove]
   );
 
+  useEffect(() => {
+    const onMouseMove = (e: MouseEvent) => {
+      if (!isDragging.current) return;
+      handleMove(e.clientX);
+    };
+    const onMouseUp = () => {
+      isDragging.current = false;
+    };
+
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+    };
+  }, [handleMove]);
+
   return (
     <div
       ref={containerRef}
       className={cn('relative aspect-[4/3] rounded-2xl overflow-hidden cursor-col-resize select-none', className)}
       onMouseDown={handleMouseDown}
-      onMouseMove={handleMouseMove}
-      onMouseUp={handleMouseUp}
-      onMouseLeave={handleMouseUp}
       onTouchMove={handleTouchMove}
       onClick={(e) => handleMove(e.clientX)}
     >
